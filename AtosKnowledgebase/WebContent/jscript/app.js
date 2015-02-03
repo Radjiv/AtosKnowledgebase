@@ -10,5 +10,5 @@ var app = angular.module('myApp', [ 'ngRoute','myApp.service' ]);
 .when("/editUser", {templateUrl: "partials/editUser.html", controller: "EditPageCtrl"})
 
 // else 404 
-.otherwise({templateUrl: "partials/workInProgress.html", controller: "PageCtrl"}); }]);
+.otherwise({templateUrl: "partials/home.html", controller: "PageCtrl"}); }]);
 

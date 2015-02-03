@@ -21,24 +21,6 @@
 		</td>
 	</tr>
 </table>
-	
-	<fieldset>
-		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Advanced search</legend>
-		<table id="advSearchBox" ng-show="ngHide" class="table_type_01">
-			<tr>
-				<td><label>status:</label>
-				<input ng-model="searchByStatus" type="text" /></td>
-			
-				<td><label>id:</label>
-				<input  ng-model="searchById" type="text" /></td>
-				
-				<td><label>omschrijving:</label>
-				<input  ng-model="searchByDescr" type="text" /></td>
-			</tr>
-		</table>
-	</fieldset>
-	
-	
 <table id="toDoListTable" class="table_type_03" ng-init="loadSprint('2_')">
 	<tr>
 		<th id="status" ng-click="orderByField='status';reverseSort = !reverseSort">

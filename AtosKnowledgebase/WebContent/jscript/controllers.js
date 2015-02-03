@@ -1,22 +1,6 @@
 /** * Controls all other Pages */ 
 
-app.service('userIdService', function() {
-	  var id="";
 
-	  var addId = function(newId) {
-	      id=newId;
-	  }
-
-	  var getId = function(){
-	      return id;
-	  }
-
-	  return {
-	    addId: addId,
-	    getId: getId
-	  };
-
-	});
 
 app.controller('PageCtrl', function ( $scope, $location, $http ) { 
 	
@@ -36,14 +20,6 @@ app.controller('ToDoListXMLCtrl', function ( $scope, DataSource ) {
 			for(var i=0; i<doneTasks.length;i++){
 				doneTasks[i].style.display = 'table-row';
 			}
-		}
-	};
-    
-	$scope.toggleAdvSearch = function(){
-		if($scope.ngHide == true){
-			$scope.ngHide = false;
-		}else{
-			$scope.ngHide = true;
 		}
 	};
 	
@@ -131,7 +107,6 @@ app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
 	
 	$scope.getId = function(){
 		return userIdService.getId();
-		
 	};
 	
 	$http.get("rest/user/getUser/"+$scope.getId).success(function(response) {$scope.user = response;});
@@ -140,16 +115,6 @@ app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
 		$scope.orderByField = 'id';
 		$scope.reverseSort = true;
 	};
-	
-	$scope.toggleAdvSearch = function(){
-		if($scope.ngHide == true){
-			$scope.ngHide = false;
-		}else{
-			$scope.ngHide = true;
-		}
-	};
-	
-	
 	
 	$scope.editUser = function(id){
 		

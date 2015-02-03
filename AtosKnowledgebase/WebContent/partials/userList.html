@@ -1,6 +1,3 @@
-
-<p>{{id}}</p>
-
 <fieldset>
 		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Advanced search</legend>
 		<table id="advSearchBox" ng-show="ngHide" class="table_type_01">
@@ -19,7 +16,6 @@
 			</tr>
 		</table>
 </fieldset>
-	
 <table class="table_type_03">
 	<tr>
 		<th ng-click="orderByField='id';reverseSort = !reverseSort" ng-init="onload()">
@@ -92,16 +88,11 @@
 		</td>
 		<td>
 			<div>
-				<button ng-click="saveId(user.id)">
-					<a href="#/editUser"><img src="../images/change.jpg"/></a>
-					<!--href="#/editUser"-->
-				</button>
+				<a href="#/editUser" ng-click="saveId(user.id)"><img src="images/change.jpg"/></a>
 			</div>			
 		</td>
 		<td>
-			<button ng-click="deleteUser(user.id)">
-				<a><img src="../images/delete.png"/></a>
-			</button>
+			<a href="#" ng-click="deleteUser(user.id)"><img src="images/delete.png"/></a>
 		</td>
 	</tr>
 </table>
