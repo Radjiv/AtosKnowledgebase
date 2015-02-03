@@ -1,0 +1,109 @@
+
+<link rel="stylesheet" type="text/css" href="css/images.css">
+
+<p>{{id}}</p>
+
+<fieldset>
+		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Advanced search</legend>
+		<table id="advSearchBox" ng-show="ngHide" class="table_type_01">
+			<tr>
+				<td><label>id:</label><input ng-model="searchById" type="text" /></td>
+				<td><label>Firstname:</label><input ng-model="searchByFn" type="text" /></td>
+				<td><label>Middlename:</label><input ng-model="searchByMn" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>Surname:</label><input ng-model="searchBySn" type="text" /></td>
+				<td><label>Date of Birth:</label><input  ng-model="searchByDoB" type="text" /></td>
+				<td><label>Function:</label><input  ng-model="searchByFunction" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>Competence:</label><input  ng-model="searchByCom" type="text" /></td>
+			</tr>
+		</table>
+</fieldset>
+	
+<table class="table_type_03">
+	<tr>
+		<th ng-click="orderByField='id';reverseSort = !reverseSort" ng-init="onload()">
+			ID
+			<span ng-show="orderByField == 'id'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='firstName';reverseSort = !reverseSort">
+			Firstname
+			<span ng-show="orderByField == 'firstName'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='middleName';reverseSort = !reverseSort">
+			Middlename
+			<span ng-show="orderByField == 'middleName'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='surName';reverseSort = !reverseSort">
+			Surname
+			<span ng-show="orderByField == 'surName'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='geboorteDatum';reverseSort = !reverseSort">
+			Date of birth
+			<span ng-show="orderByField == 'geboorteDatum'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='function';reverseSort = !reverseSort">
+			Function
+			<span ng-show="orderByField == 'function'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th ng-click="orderByField='comp';reverseSort = !reverseSort">
+			Competence
+			<span ng-show="orderByField == 'comp'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
+		<th>
+			Edit
+		</th>
+		<th>
+			Delete			
+		</th>
+	</tr>
+	<tr ng-repeat="user in users | orderBy:orderByField:reverseSort | filter:{id:searchById,firstName:searchByFn,middleName:searchByMn,surName:searchBySn,geboorteDatum:searchByDoB,function:searchByFunction,comp:searchByCom}">
+		<td>{{ user.id }}</td>
+		<td>{{ user.firstName }}</td>
+		<td>{{ user.middleName }}</td>
+		<td>{{ user.surName }}</td>
+		<td>{{ user.geboorteDatum }}</td>
+		<td>{{ user.function }}</td>
+		<td>
+			<ul>
+				<li ng-repeat="comp in user.competenties">{{comp}}</li>
+			</ul> 
+		</td>
+		<td>
+			<div>
+				<button ng-click="saveId(user.id)">
+					<a href="#/editUser"><img src="images/change.jpg"/></a>
+					<!--href="#/editUser"-->
+				</button>
+			</div>			
+		</td>
+		<td>
+			<button ng-click="deleteUser(user.id)">
+				<a><img src="images/delete.png"/></a>
+			</button>
+		</td>
+	</tr>
+</table>
