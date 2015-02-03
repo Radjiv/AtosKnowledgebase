@@ -6,7 +6,11 @@
 /.tern-project
 /.settings/
 <<<<<<< HEAD
+<<<<<<< HEAD
 /bin/
 =======
 /bin
 >>>>>>> refs/remotes/origin/slave
+=======
+/bin
+>>>>>>> branch 'slave' of https://github.com/Radjiv/AtosKnowledgebase
