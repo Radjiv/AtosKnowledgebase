@@ -10,7 +10,7 @@ public class TestUser {
 	private static UserDao userDao;
 
 	public static void main(String[] args) {
-		String id = "a888999";
+		String id = "A888999";
 		System.out.println(userDao.getUser(id));
 
 	}
