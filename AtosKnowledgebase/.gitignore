@@ -5,4 +5,8 @@
 /.classpath
 /.tern-project
 /.settings/
+<<<<<<< HEAD
 /bin/
+=======
+/bin
+>>>>>>> refs/remotes/origin/slave
