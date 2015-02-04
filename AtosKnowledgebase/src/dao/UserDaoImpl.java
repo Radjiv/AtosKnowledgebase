@@ -12,8 +12,8 @@ public class UserDaoImpl implements UserDao {
 	private DatabaseDao database;
 
 	@Override
-	public void addUser(String id, String fn, String mn, String ln, String dob, String function, List<String> competence) {
-		database.saveUser(new User(id, fn, mn, ln, dob, function, competence));
+	public void addUser(String id, String fn, String mn, String ln, String dob, String function, List<String> competence, boolean vip) {
+		database.saveUser(new User(id, fn, mn, ln, dob, function, competence, vip));
 	}
 
 	@Override
@@ -22,8 +22,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void updateUser(String id, String fn, String mn, String ln, String dob, String function, List<String> competence) {
-		database.updateUser(new User(id, fn, mn, ln, dob, function, competence), id);
+	public void updateUser(String id, String fn, String mn, String ln, String dob, String function, List<String> competence, boolean vip) {
+		database.updateUser(new User(id, fn, mn, ln, dob, function, competence, vip), id);
 	}
 
 	@Override

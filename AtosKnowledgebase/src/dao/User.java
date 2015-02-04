@@ -21,22 +21,25 @@ public class User {
 
 	@Property("SurName")
 	private String surName;
-	
+
 	@Property("DateOfBirth")
 	private String geboorteDatum;
 
 	@Property("Function")
 	private String function;
-	
+
 	@Property("Compentence")
 	private List<String> competenties;
 
-	public User(){
-		
+	@Property("Vip")
+	private boolean vip;
+
+	public User() {
+
 	}
-	
-	public User(String id, String firstName, String middleName, String surName,
-			String geboorteDatum, String function, List<String> competenties) {
+
+	public User(String id, String firstName, String middleName, String surName, String geboorteDatum, String function, List<String> competenties,
+			boolean vip) {
 		this.id = id;
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -44,6 +47,7 @@ public class User {
 		this.geboorteDatum = geboorteDatum;
 		this.function = function;
 		this.competenties = competenties;
+		this.vip = vip;
 	}
 
 	public String getId() {
@@ -53,7 +57,7 @@ public class User {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -102,12 +106,18 @@ public class User {
 		this.competenties = competenties;
 	}
 
+	public boolean getVip() {
+		return vip;
+	}
+
+	public void setVip(boolean vip) {
+		this.vip = vip;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", middleName="
-				+ middleName + ", surName=" + surName + ", geboorteDatum="
-				+ geboorteDatum + ", function=" + function + ", competenties="
-				+ competenties + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", surName=" + surName + ", geboorteDatum="
+				+ geboorteDatum + ", function=" + function + ", competenties=" + competenties + ", vip=" + vip + "]";
 	}
 
 }

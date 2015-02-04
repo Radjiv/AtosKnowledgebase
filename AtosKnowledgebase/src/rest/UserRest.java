@@ -16,18 +16,16 @@ import dao.UserDao;
 
 @Path("/user")
 public class UserRest {
-	
+
 	@Inject
 	private UserDao userDao;
 
 	@POST
 	@Path("/addUser")
-	public void addUser(@FormParam("id") String id, @FormParam("fn") String fn,
-			@FormParam("mn") String mn, @FormParam("ln") String ln, @FormParam("dob") String dob,
-			@FormParam("func") String func, @FormParam("comp") List<String> comp) {
-		userDao.addUser(id.toUpperCase(), fn, mn, ln, dob, func, comp);
+	public void addUser(@FormParam("id") String id, @FormParam("fn") String fn, @FormParam("mn") String mn, @FormParam("ln") String ln,
+			@FormParam("dob") String dob, @FormParam("func") String func, @FormParam("comp") List<String> comp, @FormParam("vip") boolean vip) {
+		userDao.addUser(id.toUpperCase(), fn, mn, ln, dob, func, comp, vip);
 	}
-
 
 	@GET
 	@Path("/getUser/{id}")
@@ -35,36 +33,35 @@ public class UserRest {
 	public User getUser(@PathParam("id") String id) {
 		return userDao.getUser(id);
 	}
-	
+
 	@GET
 	@Path("/hello/{id}")
-    // The Java method will produce content identified by the MIME Media
-    // type "text/plain"
-    @Produces("text/plain")
-    public String getClichedMessage(@PathParam("id") String id) {
-        // Return some cliched textual content
-        return "Hello World"+id;
-    }
-	
+	// The Java method will produce content identified by the MIME Media
+	// type "text/plain"
+	@Produces("text/plain")
+	public String getClichedMessage(@PathParam("id") String id) {
+		// Return some cliched textual content
+		return "Hello World" + id;
+	}
+
 	@GET
 	@Path("/getUsers")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getUsers() {
 		return userDao.getUsers();
 	}
-	
+
 	@POST
 	@Path("/deleteUser/{id}")
 	public void deleteUser(@PathParam("id") String id) {
 		userDao.deleteUser(id);
 	}
-	
+
 	@POST
 	@Path("/updateUser")
-	public void updateUser(@FormParam("id") String id, @FormParam("fn") String fn,
-			@FormParam("mn") String mn, @FormParam("ln") String ln, @FormParam("dob") String dob,
-			@FormParam("func") String func, @FormParam("comp") List<String> comp) {
-		userDao.updateUser(id.toUpperCase(), fn, mn, ln, dob, func, comp);
+	public void updateUser(@FormParam("id") String id, @FormParam("fn") String fn, @FormParam("mn") String mn, @FormParam("ln") String ln,
+			@FormParam("dob") String dob, @FormParam("func") String func, @FormParam("comp") List<String> comp, @FormParam("vip") boolean vip) {
+		userDao.updateUser(id.toUpperCase(), fn, mn, ln, dob, func, comp, vip);
 	}
-	
+
 }
