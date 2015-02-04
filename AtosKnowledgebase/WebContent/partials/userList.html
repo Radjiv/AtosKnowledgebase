@@ -3,7 +3,7 @@
 		<table id="advSearchBox"  class="table_type_01" data-ng-init="filterId='1';">
 			<tr data-ng-attr-id="filterId">
 				<td id="filter1">
-					<span ng-click="addNewFilter(filterId, searchBy)"><img src="images/plusSign.png" alt="Add filter" /></span>
+					<span ng-click="addNewFilter(filterId, searchBy)"><img id="addFilter" src="images/plusSign.png" alt="Add filter" /></span>
 					<select ng-model="searchBy">
 						<option>ID</option>
 						<option>Firstname</option>
@@ -12,6 +12,7 @@
 						<option>Date of Birth</option>
 						<option>Function</option>
 						<option>Competence</option>
+						<option>Vip</option>
 					</select>
 					<input ng-model="searchText[searchBy]" placeholder="Search" type="text" />
 				</td>
@@ -69,6 +70,13 @@
 				<span ng-show="reverseSort">&#x25B2;</span>
 			</span>
 		</th>
+		<th ng-click="orderByField='vip';reverseSort = !reverseSort">
+			VIP
+			<span ng-show="orderByField == 'vip'">
+				<span ng-show="!reverseSort">&#x25BC;</span>
+				<span ng-show="reverseSort">&#x25B2;</span>
+			</span>
+		</th>
 		<th>
 			Edit
 		</th>
@@ -76,7 +84,7 @@
 			Delete			
 		</th>
 	</tr>
-	<tr ng-repeat="user in users | orderBy:orderByField:reverseSort | filter:{id:searchById,firstName:searchByFn,middleName:searchByMn,surName:searchBySn,geboorteDatum:searchByDoB,function:searchByFunction,comp:searchByCom}">
+	<tr ng-repeat="user in users | orderBy:orderByField:reverseSort | filter:{id:searchById,firstName:searchByFn,middleName:searchByMn,surName:searchBySn,geboorteDatum:searchByDoB,function:searchByFunction,comp:searchByCom,vip:searchByVip}">
 		<td>{{ user.id }}</td>
 		<td>{{ user.firstName }}</td>
 		<td>{{ user.middleName }}</td>
@@ -88,6 +96,7 @@
 				<li ng-repeat="comp in user.competenties">{{comp}}</li>
 			</ul> 
 		</td>
+		<td>{{ user.vip }}</td>
 		<td>
 			<div>
 				<a href="#/editUser" ng-click="saveId(user.id)"><img src="images/change.jpg"/></a>
