@@ -1,18 +1,20 @@
 <fieldset>
-		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Advanced search</legend>
-		<table id="advSearchBox" ng-show="ngHide" class="table_type_01">
-			<tr>
-				<td><label>id:</label><input ng-model="searchById" type="text" /></td>
-				<td><label>Firstname:</label><input ng-model="searchByFn" type="text" /></td>
-				<td><label>Middlename:</label><input ng-model="searchByMn" type="text" /></td>
-			</tr>
-			<tr>
-				<td><label>Surname:</label><input ng-model="searchBySn" type="text" /></td>
-				<td><label>Date of Birth:</label><input  ng-model="searchByDoB" type="text" /></td>
-				<td><label>Function:</label><input  ng-model="searchByFunction" type="text" /></td>
-			</tr>
-			<tr>
-				<td><label>Competence:</label><input  ng-model="searchByCom" type="text" /></td>
+		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Filter/search</legend>
+		<table id="advSearchBox"  class="table_type_01" data-ng-init="filterId='1';">
+			<tr data-ng-attr-id="filterId">
+				<td id="filter1">
+					<span ng-click="addNewFilter(filterId, searchBy)"><img src="images/plusSign.png" alt="Add filter" /></span>
+					<select ng-model="searchBy">
+						<option>ID</option>
+						<option>Firstname</option>
+						<option>Middlename</option>
+						<option>Surname</option>
+						<option>Date of Birth</option>
+						<option>Function</option>
+						<option>Competence</option>
+					</select>
+					<input ng-model="searchText[searchBy]" placeholder="Search" type="text" />
+				</td>
 			</tr>
 		</table>
 </fieldset>

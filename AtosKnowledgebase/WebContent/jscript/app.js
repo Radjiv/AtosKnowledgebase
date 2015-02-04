@@ -3,7 +3,7 @@ var app = angular.module('myApp', [ 'ngRoute','myApp.service' ]);
 
 /** * Configure the Routes */ app.config(['$routeProvider', function ($routeProvider) { $routeProvider 
 // Pages
-.when("/home", {templateUrl: "partials/home.html", controller: "PageCtrl"}) 
+.when("/home", {templateUrl: "partials/home.html"}) 
 .when("/userList", {templateUrl: "partials/userList.html", controller: "ListPageCtrl"}) 
 .when("/addUser", {templateUrl: "partials/addUser.html", controller: "AddPageCtrl"}) 
 .when("/toDoList", {templateUrl: "partials/toDoList.html", controller: "ToDoListXMLCtrl"}) 

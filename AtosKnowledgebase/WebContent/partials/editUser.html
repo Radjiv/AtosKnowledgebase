@@ -1,11 +1,11 @@
 <h2>Edit User</h2>
 
 
-	 			<form class="form-horizontal" role="form" action="rest/user/editUser" method="post">
+	 			<form class="form-horizontal" role="form" action="rest/user/updateUser" method="post">
 					<table id="registerField" class="table_type_01">
 						<tr>
 							<td><label>A/NL number</label></td>
-							<td>{{getId()}}</td>
+							<td><input type="text" value="{{user.id}}" name="id" readonly/></td>
 						</tr>
 						<tr>
 							<td><label>Firstname *</label></td> 
