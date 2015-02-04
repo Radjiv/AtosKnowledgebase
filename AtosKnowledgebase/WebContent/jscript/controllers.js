@@ -111,8 +111,6 @@ app.controller('ListPageCtrl', function getUsers($scope, $http, userIdService) {
 });
 
 app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
-	$scope.user;
-
 	$scope.getId = function() {
 		return userIdService.getId();
 	};
@@ -121,15 +119,6 @@ app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
 			function(response) {
 				$scope.user = response;
 			});
-
-	$scope.onload = function() {
-		$scope.orderByField = 'id';
-		$scope.reverseSort = true;
-	};
-
-	$scope.editUser = function(id) {
-
-	};
 
 	var config = {
 		'.chosen-select' : {},
