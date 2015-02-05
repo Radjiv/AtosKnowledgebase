@@ -8,6 +8,7 @@ var app = angular.module('myApp', [ 'ngRoute','myApp.service' ]);
 .when("/addUser", {templateUrl: "partials/addUser.html", controller: "AddPageCtrl"}) 
 .when("/toDoList", {templateUrl: "partials/toDoList.html", controller: "ToDoListXMLCtrl"}) 
 .when("/editUser", {templateUrl: "partials/editUser.html", controller: "EditPageCtrl"})
+.when("/deleteUser", {templateUrl: "partials/deleteUser.html", controller: "DeletePageCtrl"})
 
 // else 404 
 .otherwise({templateUrl: "partials/home.html", controller: "PageCtrl"}); }]);
