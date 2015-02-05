@@ -5,11 +5,12 @@ import java.util.List;
 import javax.inject.Inject;
 
 import database.DatabaseDao;
+import database.DatabaseDaoImpl;
 
 public class UserDaoImpl implements UserDao {
 
-	@Inject
-	private DatabaseDao database;
+	
+	private DatabaseDao database = new DatabaseDaoImpl();
 
 	@Override
 	public void addUser(String id, String fn, String mn, String ln, String dob, String function, List<String> competence, boolean vip) {

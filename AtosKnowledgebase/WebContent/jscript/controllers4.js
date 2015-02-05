@@ -26,5 +26,10 @@ app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
 	for ( var selector in config) {
 		$(selector).chosen(config[selector]);
 	}
+	
+	$scope.selectComps = function(val){		
+		$('select[name="comp"]').find('option[value="'+ val +'"]').attr("selected",true);
+		$('.chosen-select').trigger('chosen:updated');
+	};
 
 });
