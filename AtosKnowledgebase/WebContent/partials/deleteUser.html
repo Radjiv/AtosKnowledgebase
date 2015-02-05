@@ -5,7 +5,7 @@
 					<table id="registerField" class="table_type_01">
 						<tr>
 							<td><label>A/NL number</label></td>
-							<td>{{user.id}}</td>
+							<td>{{user.id}} <input type="hidden" name="id" value="{{user.id}}"/></td>
 						</tr>
 						<tr>
 							<td><label>Firstname</label></td> 
@@ -41,7 +41,7 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<button type="submit" id="saveButton" class="btn btn-success">Confirm!</button>
+								<button type="submit" id="saveButton" class="btn btn-success" onclick="return confirm('Are you sure?')">Confirm!</button>
 							</td>
 						</tr>
 					</table>

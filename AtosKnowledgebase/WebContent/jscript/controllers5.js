@@ -3,7 +3,7 @@ app.controller('DeletePageCtrl', function getUser($scope, $http, userIdService) 
 		return userIdService.getId();
 	};
 
-	$http.get("rest/user/deleteUser/" + userIdService.getId()).success(
+	$http.get("rest/user/getUser/" + userIdService.getId()).success(
 			function(response) {
 				$scope.user = response;
 			});
