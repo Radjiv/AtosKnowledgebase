@@ -1,12 +1,12 @@
-	 			<form class="form-horizontal" role="form" action="rest/user/addUser" method="post">
+	 			<form id="addForm" class="form-horizontal" role="form" action="rest/user/addUser" method="post">
 					<table id="registerField" class="table_type_01">
 						<tr>
 							<td><label>A/NL number *</label></td>
-							<td><input type="text" name="id" placeholder="A123456 / NL12345" required pattern="^[aA]{1}[0-9]{6}$|^[nlNL]{2}[0-9]{5}$" autofocus oninvalid="setCustomValidity('* required \nPlease enter your A or NL number in this format A123456 / NL12345 ')"  onchange="try{setCustomValidity('')}catch(e){}" /></td>
+							<td><input type="text" id="id" name="id" placeholder="A123456 / NL12345" required pattern="^[aA]{1}[0-9]{6}$|^[nlNL]{2}[0-9]{5}$" autofocus oninvalid="setCustomValidity('* required \nPlease enter your A or NL number in this format A123456 / NL12345 ')"  onchange="try{setCustomValidity('')}catch(e){}" /></td>
 						</tr>
 						<tr>
 							<td><label>Firstname *</label></td>
-							<td><input type="text" name="fn" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your firstname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
+							<td><input type="text" id="fn" name="fn" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your firstname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
 						</tr>
 						<tr>
 							<td><label>Middlename</label></td>
@@ -14,7 +14,7 @@
 						</tr>
 						<tr>
 							<td><label>Surname *</label></td> 
-							<td><input type="text" name="ln" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your surname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
+							<td><input type="text" id="ln" name="ln" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your surname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
 						</tr>
 						<tr>
 							<td><label>Date of Birth</label></td>
@@ -39,11 +39,15 @@
 						</tr>
 						<tr>
 							<td><label>VIP</label></td>
-							<td>Ja <input type="radio" name="vip" value="true" /> | Nee <input type="radio" name="vip" value="false" /></td>
+							<td>
+								Ja <input type="radio" name="vip" value="true" /> 
+								| Nee <input type="radio" name="vip" value="false" checked/>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<button type="submit" id="saveButton" class="btn btn-success">Save</button>
+								<input type="button" class="ui-button-text" id="btnOpenDialog" value="Add user" />
+								<div id="dialog-confirm"></div>
 							</td>
 						</tr>
 						<tr>
