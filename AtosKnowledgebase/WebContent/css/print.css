@@ -108,10 +108,37 @@ div#progress_bar{
 
 .toggleAdvSearchBtn{
 	float:right;
+	text-align:right;
 	margin-right:15px;
 	cursor:pointer;
+	width:100%;
+}
+
+#advSearchBox{
+	width:100px !important;
+	float:right;
+}
+
+#addFilterBox{
+	min-width:200px;
+	display:block;
+}
+
+#addFilterImage{
+	height:20px;
+	width:20px;
+	float:right;
+	padding:2px 0 0 23px;
+}
+
+tr#filterAdd{
+	
 }
 
 select{
 	height:24px;
+}
+
+select#searchBy{
+	width:150px;
 }

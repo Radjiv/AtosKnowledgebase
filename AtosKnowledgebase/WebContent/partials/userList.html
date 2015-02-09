@@ -1,27 +1,95 @@
+<div ng-init="onload()">
 <fieldset>
 		<legend class="toggleAdvSearchBtn" ng-click="toggleAdvSearch()">Filter/search</legend>
-		<table id="advSearchBox"  class="table_type_01" data-ng-init="filterId='1';">
-			<tr data-ng-attr-id="filterId">
-				<td id="filter1">
-					<span ng-click="addNewFilter(filterId, searchBy)"><img id="addFilter" src="images/plusSign.png" alt="Add filter" /></span>
-					<select ng-model="searchBy">
-						<option>ID</option>
-						<option>Firstname</option>
-						<option>Middlename</option>
-						<option>Surname</option>
-						<option>Date of Birth</option>
-						<option>Function</option>
-						<option>Competence</option>
-						<option>Vip</option>
-					</select>
-					<input ng-model="searchText[searchBy]" placeholder="Search" type="text" />
+
+		<table id="advSearchBox"  class="table_type_01" >
+			<tr id="filterAdd">
+				<td colspan=2>
+					<div id="addFilterBox">
+						<span id="addFilterImage"><img id="addFilter" ng-click="addNewFilter(searchBy)" src="images/plusSign.png" alt="Add filter" /></span>
+						<select id="searchBy" ng-model="searchBy">
+							<option id="id" value="id">ID</option>
+							<option id="firstName" value="fn">Firstname</option>
+							<option id="middleName" value="mn">Middlename</option>
+							<option id="surName" value="sn">Surname</option>
+							<option id="geboorteDatum" value="dob">Date of Birth</option>
+							<option id="function" value="f">Function</option>
+							<!-- <option id="compentence" value="comp">Competence</option> -->
+							<option id="function" value="vip">VIP</option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr id="filter1" ng-hide="filterId">
+				<td>
+					<label>ID: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextid" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterFn" ng-hide="filterFn">
+				<td>
+					<label>Firstname: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextfirstName" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterMn" ng-hide="filterMn">
+				<td>
+					<label>Middlename: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextmiddleName" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterSn" ng-hide="filterSn">
+				<td>
+					<label>Surname: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextsurName" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterDoB" ng-hide="filterDoB">
+				<td>
+					<label>Date of Birth: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextgeboorteDatum" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterF" ng-hide="filterF">
+				<td>
+					<label>Function: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextfunction" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterComp" ng-hide="filterComp">
+				<td>
+					<label>Competences: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextcomp" placeholder="Search" type="text" />
+				</td>
+			</tr>
+			<tr id="filterVip" ng-hide="filterVip">
+				<td>
+					<label>VIP: </label>
+				</td>
+				<td >
+					<input id="textSearchBy" ng-model="searchTextvip" placeholder="Search" type="text" />
 				</td>
 			</tr>
 		</table>
+		
 </fieldset>
 <table class="table_type_03">
 	<tr>
-		<th ng-click="orderByField='id';reverseSort = !reverseSort" ng-init="onload()">
+		<th ng-click="orderByField='id';reverseSort = !reverseSort" >
 			ID
 			<span ng-show="orderByField == 'id'">
 				<span ng-show="!reverseSort">&#x25BC;</span>
@@ -84,7 +152,9 @@
 			Delete			
 		</th>
 	</tr>
-	<tr ng-repeat="user in users | orderBy:orderByField:reverseSort | filter:{id:searchById,firstName:searchByFn,middleName:searchByMn,surName:searchBySn,geboorteDatum:searchByDoB,function:searchByFunction,comp:searchByCom,vip:searchByVip}">
+
+	<tr class="userListItem" ng-repeat="user in users | orderBy:orderByField:reverseSort |filter:{id:searchTextid,firstName:searchTextfirstName,middleName:searchTextmiddleName,surName:searchTextsurName,geboorteDatum:searchTextgeboorteDatum,function:searchTextfunction,comp:searchTextcomp,vip:searchTextvip}">
+
 		<td>{{ user.id }}</td>
 		<td>{{ user.firstName }}</td>
 		<td>{{ user.middleName }}</td>
@@ -107,3 +177,4 @@
 		</td>
 	</tr>
 </table>
+</div>
