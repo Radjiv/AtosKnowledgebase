@@ -19,11 +19,12 @@ public class DatabaseDaoImpl implements DatabaseDao {
 
 	public DatabaseDaoImpl() {
 		try {
-			MongoClient mongoClient = new MongoClient("localhost", 27017);
-			Morphia morphia = new Morphia();
+			final MongoClient mongoClient = new MongoClient("localhost", 27017);
+			final Morphia morphia = new Morphia();
 			morphia.mapPackage("database");
 			datastore = morphia.createDatastore(mongoClient, databaseName);
 		} catch (UnknownHostException e) {
+			// TODO SIMON: Verwijder e.printStackTrace
 			e.printStackTrace();
 		}
 	}

@@ -2,8 +2,6 @@ package dao;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import database.DatabaseDao;
 import database.DatabaseDaoImpl;
 
