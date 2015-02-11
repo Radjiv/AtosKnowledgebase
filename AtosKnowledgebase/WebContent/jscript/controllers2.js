@@ -1,22 +1,5 @@
 app.controller('AddPageCtrl', function($scope, $location, $http) {
-	var config = {
-		'.chosen-select' : {},
-		'.chosen-select-deselect' : {
-			allow_single_deselect : true
-		},
-		'.chosen-select-no-single' : {
-			disable_search_threshold : 10
-		},
-		'.chosen-select-no-results' : {
-			no_results_text : 'Oops, nothing found!'
-		},
-		'.chosen-select-width' : {
-			width : "95%"
-		}
-	}
-	for ( var selector in config) {
-		$(selector).chosen(config[selector]);
-	}
+	
 	
 	$scope.checkUserExists = function(id){
 		if (($http.get("rest/user/getUser/" + id))!=null){
@@ -66,5 +49,34 @@ app.controller('AddPageCtrl', function($scope, $location, $http) {
 	    	$( "#addForm" ).trigger("submit");
 	    } 
 	};
+	
+	$('#select-to').selectize({
+		plugins: ['remove_button'],
+		persist: false,
+		maxItems: null,
+		valueField: 'comp',
+		searchField: ['comp'],
+		options: [
+			{comp: '.Net'},
+			{comp: 'Java'},
+			{comp: 'Scrum'}
+		],
+		render: {
+			item: function(item, escape) {
+				return '<div>' +
+					(item.comp ? '<span class="comp">' + escape(item.comp) + '</span>' : '') +
+				'</div>';
+			},
+			option: function(item, escape) {
+				var label = item.comp;
+				return '<div>' +
+					'<span class="label">' + escape(label) + '</span>' +
+				'</div>';
+			}
+		},
+		create: function(input) {
+			return {comp: input};
+		}
+	});
 	
 });
