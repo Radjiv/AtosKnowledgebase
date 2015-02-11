@@ -449,6 +449,7 @@ structure: #content structure
     background-image: url(../images/bg_content_bottom.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
+    min-height:500px;
 }   
 .content_1col_wide, .content_2col_wide, content_3col_wide, content_col4wide_wide, .content_5col_wide {  
     float: left;

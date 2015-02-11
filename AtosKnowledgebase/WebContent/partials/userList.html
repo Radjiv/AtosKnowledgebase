@@ -152,9 +152,7 @@
 			Delete			
 		</th>
 	</tr>
-
 	<tr class="userListItem" ng-repeat="user in users | orderBy:orderByField:reverseSort |filter:{id:searchTextid,firstName:searchTextfirstName,middleName:searchTextmiddleName,surName:searchTextsurName,geboorteDatum:searchTextgeboorteDatum,function:searchTextfunction,comp:searchTextcomp,vip:searchTextvip}">
-
 		<td>{{ user.id }}</td>
 		<td>{{ user.firstName }}</td>
 		<td>{{ user.middleName }}</td>
