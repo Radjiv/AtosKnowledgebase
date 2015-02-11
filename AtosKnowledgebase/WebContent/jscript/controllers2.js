@@ -26,45 +26,39 @@ app.controller('AddPageCtrl', function($scope, $location, $http) {
 		}
 	};
 	
-	$scope.checkForm = function(){
-		if (document.getElementById("id")!=""//moet regx pattern worden, voor check
-			|| document.getElementById("fn")!=""
-			|| document.getElementById("ln")!=""){
-			alert("een verplichte veld is leeg");
-		} else {
-			alert("verplichte veld is niet leeg");
+	$('#btnOpenDialog').click(fnOpenNormalDialog);
+	
+	var fnOpenNormalDialog = function() {	
+		if (document.getElementById('id').checkValidity() && 
+				document.getElementById('fn').checkValidity() && 
+				document.getElementById('mn').checkValidity() &&
+				document.getElementById('dob').checkValidity() &&
+				document.getElementById('func').checkValidity() &&
+				document.getElementById('ln').checkValidity()){
+			openDialog();			
 		}
 	};
 	
-	function fnOpenNormalDialog() {	
-			$("#dialog-confirm").html("Do you want to add a user?");
+	var openDialog = function(){
+		$("#dialog-confirm").html("Do you want to add a user?");
 
-			// Define the Dialog and its properties.
-			$("#dialog-confirm").dialog({
-				resizable: false,
-				modal: true,
-				title: "Add user",
-				height: 150,
-				width: 200,
-				buttons: {
-					"Yes": function () {
-						$(this).dialog('close');
-						callback(true);
-					},
-	                	"No": function () {
-	                		$(this).dialog('close');
-	                		callback(false);
-	                }
-				}
-			});
-	};
-
-	$('#btnOpenDialog').click(fnOpenNormalDialog);
-
-	function callback(value) {
-	    if (value) {
-	    	$( "#addForm" ).trigger("submit");
-	    } 
+		// Define the Dialog and its properties.
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			modal: true,
+			title: "Add user",
+			height: 150,
+			width: 200,
+			buttons: {			
+				"Yes": function () {
+					$(this).dialog('close');
+					$( "#addForm" ).trigger("submit");
+				},
+                	"No": function () {
+                		$(this).dialog('close');
+                }
+			}
+		});
 	};
 	
 });

@@ -32,36 +32,39 @@ app.controller('EditPageCtrl', function getUser($scope, $http, userIdService) {
 		$('.chosen-select').trigger('chosen:updated');
 	};
 	
-	function fnOpenNormalDialog() {
-	    $("#dialog-confirm").html("Do you want to edit user?");
-
-	    // Define the Dialog and its properties.
-	    $("#dialog-confirm").dialog({
-	        resizable: false,
-	        modal: true,
-	        title: "Edit user",
-	        height: 150,
-	        width: 200,
-	        buttons: {
-	            "Yes": function () {
-	                $(this).dialog('close');
-	                callback(true);
-	            },
-	                "No": function () {
-	                $(this).dialog('close');
-	                callback(false);
-	            }
-	        }
-	    });
-	}
-
 	$('#btnOpenDialog').click(fnOpenNormalDialog);
+	
+	var fnOpenNormalDialog = function(){	
+		if (document.getElementById('id').checkValidity() && 
+				document.getElementById('fn').checkValidity() && 
+				document.getElementById('mn').checkValidity() &&
+				document.getElementById('dob').checkValidity() &&
+				document.getElementById('func').checkValidity() &&
+				document.getElementById('ln').checkValidity()){
+			openDialog();
+		}
+	};
+	
+	var openDialog = function(){
+		$("#dialog-confirm").html("Do you want to edit the user?");
 
-	function callback(value) {
-	    if (value) {
-	    	$( "#editForm" ).trigger("submit");
-	    	document.location.href = '#/userList'
-	    } 
+		// Define the Dialog and its properties.
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			modal: true,
+			title: "Edit user",
+			height: 150,
+			width: 200,
+			buttons: {			
+				"Yes": function () {
+					$(this).dialog('close');
+					$( "#editForm" ).trigger("submit");
+				},
+                	"No": function () {
+                		$(this).dialog('close');
+                }
+			}
+		});
 	}
 
 });

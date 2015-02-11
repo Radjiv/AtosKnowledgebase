@@ -4,27 +4,27 @@
 					<table id="registerField" class="table_type_01">
 						<tr>
 							<td><label>A/NL number</label></td>
-							<td><input type="text" value="{{user.id}}" name="id" readonly/></td>
+							<td><input id="id" type="text" value="{{user.id}}" name="id" readonly/></td>
 						</tr>
 						<tr>
 							<td><label>Firstname *</label></td> 
-							<td><input type="text" value="{{user.firstName}}" name="fn" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your firstname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
+							<td><input id="fn" type="text" value="{{user.firstName}}" name="fn" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your firstname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
 						</tr>
 						<tr>
 							<td><label>Middlename</label></td>
-							<td><input type="text" value="{{user.middleName}}" name="mn" pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$"/></td>
+							<td><input id="mn" type="text" value="{{user.middleName}}" name="mn" pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$"/></td>
 						</tr>
 						<tr>
 							<td><label>Surname *</label></td> 
-							<td><input type="text" value="{{user.surName}}" name="ln" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your surname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
+							<td><input id="ln" type="text" value="{{user.surName}}" name="ln" required pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$" oninvalid="setCustomValidity('* required \nPlease enter your surname ')"  onchange="try{setCustomValidity('')}catch(e){}"/></td>
 						</tr>
 						<tr>
 							<td><label>Date of Birth</label></td>
-							<td><input type="text" value="{{user.geboorteDatum}}" name="dob" placeholder="dd-mm-jjjj"  pattern="^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$"/></td>
+							<td><input id="dob" type="text" value="{{user.geboorteDatum}}" name="dob" placeholder="dd-mm-jjjj"  pattern="^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$"/></td>
 						</tr>
 						<tr>
 							<td><label>Function</label></td>
-							<td><input type="text" value="{{user.function}}" name="func"  pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$"/></td>
+							<td><input id="func" type="text" value="{{user.function}}" name="func"  pattern="^[a-zA-Z][a-zA-Z-_\. ]{1,30}$"/></td>
 						</tr>			
 						<tr>
 							<td><label>Competences</label></td>
@@ -48,7 +48,7 @@
 						</tr>	
 						<tr>
 							<td colspan="2">
-								<input type="button" class="ui-button-text" id="btnOpenDialog" value="Edit user" />
+								<input type="submit" class="ui-button-text" id="btnOpenDialog" value="Edit user" />
 								<div id="dialog-confirm"></div>
 							</td>
 						</tr>
