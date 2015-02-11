@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Wiki..</title>
+	    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+	    
+	    <!--  Load CSS -->
+	    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	    <link rel="stylesheet" type="text/css" href="../css/print.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset-min.css"/>
+				
+	    <!-- Load AngularJS libraries -->
+	    <script src="../jscript/libs/angular.js"></script>
+		<script src="../jscript/libs/angular-route.min.js"></script>
+		<script src="../jscript/libs/angular-resource.js"></script>
+		
+	    <!-- Load Javascript files -->
+	    <script src="../jscript/app.js"></script>
+	    <script src="../jscript/services.js"></script>
+</head>
+<body>
+	<div id="bgimgwrapper">
+			<img style="width: 100%; display: block;" id="bg1" src="../images/grain-landscape.jpg" class="active">
+	</div>
+	<div ng-app="wikiApp">
+		<div id="HomeContainer">
+			<nav>
+				<ul class="navigation">
+					<li><a class="header-carousel-tab firstslide" href="../"> &lt; Atos KnowledgeBase</a></li>
+				</ul>
+			</nav>
+		<div id="wrapper">
+			<div id="headerrow" >	
+					<div id="header">
+			<nav>
+				<ul class="navigation-list">
+					<li><a class="header-carousel-tab firstslide" href="#/">Wiki Home</a></li>
+					<li><a class="header-carousel-tab firstslide" href="#/Database">Database</a></li>
+					<li><a class="header-carousel-tab firstslide" href="#/DAOService">DAO Service</a></li>
+					<li><a class="header-carousel-tab firstslide" href="#/RestFul">RestFul</a></li>
+					<li><a class="header-carousel-tab firstslide" href="#/FrontEnd">Website</a></li>
+				</ul>
+			</nav>
+			</div>
+		</div>
+		<div id="contentrow">
+			<div id="content" ng-view></div>
+			</div>
+		</div>
+	</div>
+	<div id="footerrow">
+					<div id="footer">
+						<div id="footercontent">
+								<span id="copyright-legal">© 2015 - Atos.net</span>
+						</div>
+					</div>
+			</div>
+	</div>
+</body>
+</html>
