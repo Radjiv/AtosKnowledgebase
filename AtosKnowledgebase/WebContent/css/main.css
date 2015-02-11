@@ -50,12 +50,12 @@ a {
     text-decoration:none;
 }   
 #content a, #content a:link, #content a:active, #content a:visited { 
-   color: #A626AA;
+   /* color: #A626AA; */
 }   
 #content a:hover,
 .runtime-hover { 
-    color: #FFFFFF !important;
-    background-color: #A626AA;
+/*     color: #FFFFFF !important;
+    background-color: #A626AA; */
 }
 
 p#wait-warning {
