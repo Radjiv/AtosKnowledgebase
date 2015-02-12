@@ -1,5 +1,5 @@
 <h2>Edit User</h2>
-<form id="editForm" class="form-horizontal" role="form" action="rest/user/updateUser" method="post">
+<form id="editForm" class="form-horizontal" role="form" action="rest/user/updateUser" onsubmit="return(askConfirm())" method="post">
 	<table id="registerField" class="table_type_01">
 		<tr>
 			<td><label>A/NL number</label></td>
@@ -38,7 +38,7 @@
 		</tr>	
 		<tr>
 			<td colspan="2">
-				<input type="submit" class="ui-button-text" id="btnOpenDialog" ng-click="fnOpenNormalDialog()" value="Edit user" />
+				<input type="submit" class="ui-button-text" value="Edit user" />
 				<div id="dialog-confirm"></div>
 			</td>
 		</tr>
@@ -49,3 +49,35 @@
 		</tr>
 	</table>		
 </form>
+<script>
+var isEdited = false;
+
+function proceed(){
+	isEdited = true;
+	setTimeout(function(){ document.forms["editForm"].submit(); }, 100);
+	setTimeout(function(){ window.location.href = "#/userList"; }, 100);
+};
+
+function askConfirm(){
+	if(!isEdited){
+		$("#dialog-confirm").html("Do you want to edit user?");
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			modal: true,
+			title: "Edit user",
+			height: 150,
+			width: 200,
+			buttons: {			
+				"Yes": function () {
+					proceed();		
+					$(this).dialog('close');
+				},
+                "No": function () {
+                	$(this).dialog('close');
+                }
+			}
+		});	
+	} 
+	return false;
+};	
+</script>

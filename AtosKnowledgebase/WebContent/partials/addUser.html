@@ -1,4 +1,4 @@
-<form id="addForm" class="form-horizontal" role="form" action="rest/user/addUser" method="post">
+<form id="addForm" class="form-horizontal" role="form" action="rest/user/addUser" onsubmit="return(askConfirm())" method="post">
 	<table id="registerField" class="table_type_01">
 		<tr>
 			<td><label>A/NL number *</label></td>
@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" class="ui-button-text" id="btnDialog" ng-click="fnOpenNormalDialog()" value="Add user" />
+				<input type="submit" class="ui-button-text" value="Add user" />
 				<div id="dialog-confirm"></div>
 			</td>
 		</tr>
@@ -48,3 +48,34 @@
 		</tr>
 	</table>
 </form>
+<script>
+var isEdited = false;
+
+function proceed(){
+	isEdited = true;
+	setTimeout(function(){ document.forms["addForm"].submit(); }, 100);
+};
+
+function askConfirm(){
+	if(!isEdited){
+		$("#dialog-confirm").html("Do you want to add user?");
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			modal: true,
+			title: "Add user",
+			height: 150,
+			width: 200,
+			buttons: {			
+				"Yes": function () {
+					proceed();		
+					$(this).dialog('close');
+				},
+                "No": function () {
+                	$(this).dialog('close');
+                }
+			}
+		});	
+	} 
+	return false;
+};	
+</script>
