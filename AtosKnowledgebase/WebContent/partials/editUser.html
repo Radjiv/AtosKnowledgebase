@@ -1,5 +1,5 @@
-<h2>Edit User</h2>
-<form id="editForm" class="form-horizontal" role="form" action="rest/user/updateUser" onsubmit="return(askConfirm())" method="post">
+<h2>Edit User</h2><!-- onsubmit="return(askEdit())" -->
+<form id="editForm" class="form-horizontal" role="form" action="rest/user/updateUser"  method="post">
 	<table id="registerField" class="table_type_01">
 		<tr>
 			<td><label>A/NL number</label></td>
@@ -27,7 +27,10 @@
 		</tr>			
 		<tr>
 			<td><label>Competences</label></td>
-			<td><select id="select-to" name="comp" class="contacts" data-placeholder="Select competences" style="width:350px;"></select></td>
+			<td>
+				<select id="comp" name="comp" class="contacts" style="width:350px;">
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td><label>VIP</label></td>
@@ -49,35 +52,3 @@
 		</tr>
 	</table>		
 </form>
-<script>
-var isEdited = false;
-
-function proceed(){
-	isEdited = true;
-	setTimeout(function(){ document.forms["editForm"].submit(); }, 100);
-	setTimeout(function(){ window.location.href = "#/userList"; }, 100);
-};
-
-function askConfirm(){
-	if(!isEdited){
-		$("#dialog-confirm").html("Do you want to edit user?");
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			modal: true,
-			title: "Edit user",
-			height: 150,
-			width: 200,
-			buttons: {			
-				"Yes": function () {
-					proceed();		
-					$(this).dialog('close');
-				},
-                "No": function () {
-                	$(this).dialog('close');
-                }
-			}
-		});	
-	} 
-	return false;
-};	
-</script>

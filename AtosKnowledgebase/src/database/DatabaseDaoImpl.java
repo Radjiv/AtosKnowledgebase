@@ -15,18 +15,19 @@ import dao.User;
 public class DatabaseDaoImpl implements DatabaseDao {
 
 	private Datastore datastore;
-	private final String databaseName = "atosdb";
+	private static final String DBNAME = "atosdb";
 
 	public DatabaseDaoImpl() {
 		try {
 			final MongoClient mongoClient = new MongoClient("localhost", 27017);
 			final Morphia morphia = new Morphia();
 			morphia.mapPackage("database");
-			datastore = morphia.createDatastore(mongoClient, databaseName);
+			datastore = morphia.createDatastore(mongoClient, DBNAME);
 		} catch (UnknownHostException e) {
 			// TODO SIMON: Verwijder e.printStackTrace
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class DatabaseDaoImpl implements DatabaseDao {
 
 	@Override
 	public User getUser(String id) {
-		User user = datastore.find(User.class, "id", id).get();
+		User user = (User)(datastore.find(User.class, "id", id).get());
 		return user;
 	}
 

@@ -1,9 +1,9 @@
-app.controller('ListPageCtrl', function getUsers($scope, $http, userIdService) {	
+app.controller('ListPageCtrl', function getUsers($scope, $http, userIdService) {
+	
 	$http.get("rest/user/getUsers").success(function(response) {
 		$scope.users = response;
 	});
-	//deze commentaar kan worden verwijderd
-
+	
 	$scope.onload = function() {
 		$scope.orderByField = 'id';
 		$scope.reverseSort = true;
@@ -52,5 +52,26 @@ app.controller('ListPageCtrl', function getUsers($scope, $http, userIdService) {
 	$scope.saveId = function(id) {
 		userIdService.addId(id);
 	};
+	
+	$scope.deleteUser = function(id){
+		$("#dialog-confirm").html("Do you want to delete user?");
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			modal: true,
+			title: "Delete user",
+			height: 150,
+			width: 200,
+			buttons: {			
+				"Yes": function () {	
+					$(this).dialog('close');
+					$http.post("rest/user/deleteUser/" + id);
+					location.reload();
+				},
+	            "No": function () {
+	            	$(this).dialog('close');
+	            }
+			}
+		});	 
+	};	
 
 });

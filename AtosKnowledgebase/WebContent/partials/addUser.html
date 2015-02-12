@@ -1,8 +1,10 @@
-<form id="addForm" class="form-horizontal" role="form" action="rest/user/addUser" onsubmit="return(askConfirm())" method="post">
+<!-- onsubmit="return(askAdd())" -->
+<form id="addForm" class="form-horizontal" role="form" action="rest/user/addUser" method="post">
+	<p id="inform"></p>
 	<table id="registerField" class="table_type_01">
 		<tr>
 			<td><label>A/NL number *</label></td>
-			<td><input type="text" id="id" name="id" placeholder="A123456 / NL12345" required pattern="^[aA]{1}[0-9]{6}$|^[nlNL]{2}[0-9]{5}$" autofocus oninvalid="setCustomValidity('* required \nPlease enter your A or NL number in this format A123456 / NL12345 ')"  onchange="try{setCustomValidity('')}catch(e){}" /></td>
+			<td><input type="text" ng-model="userId" name="id" placeholder="A123456 / NL12345" required pattern="^[aA]{1}[0-9]{6}$|^[nlNL]{2}[0-9]{5}$" autofocus oninvalid="setCustomValidity('* required \nPlease enter your A or NL number in this format A123456 / NL12345 ')"  onchange="try{setCustomValidity('')}catch(e){}" /></td>
 		</tr>
 		<tr>
 			<td><label>Firstname *</label></td>
@@ -26,7 +28,9 @@
 		</tr>
 		<tr>
 			<td><label>Competences</label></td>
-			<td><select id="select-to" name="comp" class="contacts" data-placeholder="Select competences" style="width:350px;"></select></td>
+			<td>
+				<select id="comp" name="comp" class="contacts" style="width:350px;"></select>
+			</td>
 		</tr>
 		<tr>
 			<td><label>VIP</label></td>
@@ -48,34 +52,3 @@
 		</tr>
 	</table>
 </form>
-<script>
-var isEdited = false;
-
-function proceed(){
-	isEdited = true;
-	setTimeout(function(){ document.forms["addForm"].submit(); }, 100);
-};
-
-function askConfirm(){
-	if(!isEdited){
-		$("#dialog-confirm").html("Do you want to add user?");
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			modal: true,
-			title: "Add user",
-			height: 150,
-			width: 200,
-			buttons: {			
-				"Yes": function () {
-					proceed();		
-					$(this).dialog('close');
-				},
-                "No": function () {
-                	$(this).dialog('close');
-                }
-			}
-		});	
-	} 
-	return false;
-};	
-</script>

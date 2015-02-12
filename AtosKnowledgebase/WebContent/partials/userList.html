@@ -166,13 +166,13 @@
 		</td>
 		<td>{{ user.vip }}</td>
 		<td>
-			<div>
-				<a href="#/editUser" ng-click="saveId(user.id)"><img src="images/change.jpg"/></a>
-			</div>			
+			<a ng-click="saveId(user.id)" href="#/editUser" ><img src="images/change.jpg"/></a>		
 		</td>
 		<td>
-			<a href="#/deleteUser" ng-click="saveId(user.id)"><img src="images/delete.png"/></a>
+			<a ng-click="deleteUser(user.id)"><img src="images/delete.png"/></a>
+			<div id="dialog-confirm"></div>
 		</td>
 	</tr>
 </table>
 </div>
+

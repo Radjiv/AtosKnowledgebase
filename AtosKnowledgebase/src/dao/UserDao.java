@@ -13,11 +13,5 @@ public interface UserDao {
 	public List<User> getUsers();
 
 	public User getUser(String id);
-
-	/*
-	 * public String getRecordsByID(String id);
-	 * 
-	 * public String getRecordsByName(String firstName, String middleName, String lastName);
-	 */
-
+	
 }
