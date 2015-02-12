@@ -52,7 +52,7 @@ public class UserRest {
 	}
 
 	@POST
-	@Path("/deleteUser")
+	@Path("/deleteUser/{id}")
 	public void deleteUser(@FormParam("id") String id) {
 		userDao.deleteUser(id);
 	}
