@@ -17,9 +17,9 @@ var wikiApp = angular.module('wikiApp', ['ngRoute','myApp.service']);
 
 wikiApp.config(['$routeProvider', function ($routeProvider) { $routeProvider 
 .when("/wikihome", {templateUrl: "wikipages/WikiHome.html"})
-.when("/Database", {templateUrl: "wikipages/Database.html"})
+.when("/MongoDB", {templateUrl: "wikipages/MongoDB.html"})
 .when("/FrontEnd", {templateUrl: "wikipages/FrontEnd.html"})
-.when("/Restful", {templateUrl: "wikipages/Restful.html"})
+.when("/RestFul", {templateUrl: "wikipages/RestFul.html"})
 .when("/DAOService",{templateUrl: "wikipages/DAOService.html"})
 .when("/",{templateUrl: "wikipages/WikiHome.html"})
 	

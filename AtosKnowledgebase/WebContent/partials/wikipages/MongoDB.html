@@ -1,0 +1,43 @@
+<article>
+<h2>Wiki Mongodb</h2>
+
+<h3>MongoDB</h3>
+<p>Mongodb is een open-source document geori&#235;nteerde NoSql(geen relationeel databasemanagementsysteem) database. 
+Er is geen schema, de documenten worden in de vorm van BSON (binair JSON) opgeslagen en de structuur van deze documenten is flexibel.</p>
+<h4>Installatie</h4>
+<p>Download hier de laatste versie van MongoDB: http://www.mongodb.org/downloads.
+Installeer deze in een gewenste map.</p>
+Doorloop vervolgens de volgende stappen:<br/>
+<ol>
+	<li>Open in je command propt mongod vanuit de bin map in de mongodb folder.</li>
+	<li>Zodra mongo voor het eerst wordt gebruikt, specificeer dan eerst de default folder met het command: md \data\db</li>
+	<li>Open hierna vanuit een tweede command prompt mongo vanuit de zelfde map.</li>
+	<li>Zodra mongo is gestart gebruiken we het atos database met het command: use atosdb.</li>
+	<li>Bevestig hierna met het command db dat je deze database dat werkelijk gaat gebruiken.</li>
+	<li>Mongo is klaar voor gebruik.</li>
+</ol><br/>	
+
+<p>Tip: Hernoem de mongodb folder naar mongodb. Hierdoor hoef je niet elke keer bij het opstarten van de database de gehele folernaam in de command prompt te typen.
+Een ander mogelijkheid is om de map te openen in explorer, vervolgens shift ingedrukt houden en met de andere muisknop klikken. 
+Kies hierna Open command window here. 
+Hierdoor is de command promp gelijk in de juiste map.</p>
+
+<h4>Werking</h4>
+<p>Mongodb is programmatisch verwerkt in de applicatie doordat er een User class is aangemaakt. Deze User class omvat de volgende variabelen:</p>
+<ol>
+	<li>id (String)</li>
+	<li>firstName (String)</li>
+	<li>middleName (String)</li>
+	<li>surName (String)</li>
+	<li>dateOfBirth (String)</li>
+	<li>function (String)</li>
+	<li>competence (List&lt;String&gt;)</li>
+	<li>vip (boolean)</li>
+</ol>
+<p>Deze User class is ge-inject met het Morphia framework. 
+Het Morphia framework maakt een koppeling tussen de User class en de DAO. 
+Door deze combinatie wordt door het aanroepen van DAO methoden de database ge-update.</p>
+<p>Zodra de server is gestart kan op de website Users toegevoegd, gewijzigd of verwijdert worden. 
+Vanuit de mongo command prompt, kan middels het command: db.User.find() de inhoud van de database opgevraagd worden.</p>
+
+</article>

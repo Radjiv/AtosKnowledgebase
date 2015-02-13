@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<article>
+<h2>Wiki Restful</h2>
 
-</body>
-</html>
+<h3>RestFul</h3>
+<p>Restful is een architectuur framework voor het co&#246;rdineren van zend en ontvang data tussen een website en een database (Services).</p>
+
+<h4>Installatie</h4>
+<p>Voor het gebruik van een RestFul service is het nodig om de juiste dependency op te halen middels Maven.</p> 
+<p>De dependency voor RestFul is:<br/>
+&lt;dependency&gt;<br/>
+&nbsp;&nbsp;&nbsp;      &lt;groupId&gt;javax.ws.rs&lt;/groupId&gt;<br/>
+&nbsp;&nbsp;&nbsp;      &lt;artifactId&gt;javax.ws.rs-api&lt;/artifactId&gt;<br/>
+&nbsp;&nbsp;&nbsp;      &lt;version&gt;2.0.1&lt;/version&gt;<br/>
+&lt;/dependency&gt;<br/>
+
+<h4>Werking</h4>
+<p>In de applicatie is de class UserRest aangemaakt. 
+Hierin zijn de POST en GET services opgenomen. 
+De POST service stuurt data naar de database, zoals het aanmaken van een User. 
+De GET service haalt informatie op uit de database, zoals het opvragen van een User.</p><br/>
+<p>In de applicatie zijn de volgende methoden opgenomen:<br/></p>
+<ul>
+	<li>addUser (voor het toevoegen van een User).</li>
+	<li>getUser (voor het opvragen van een User).</li>
+	<li>getUsers(voor het opvragen van alle Users).</li>
+	<li>deleteUser(voor het verwijderen van een User).</li>
+	<li>updateUser(voor het updaten van informatie van een User).</li>
+</ul>
+</article>
