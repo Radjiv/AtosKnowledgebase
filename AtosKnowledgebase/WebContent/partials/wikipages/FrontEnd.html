@@ -118,4 +118,124 @@ Plaats binnen de functie vervolgens de gewenste Javascript code.</p>
 <p>Vervolgens openen we onze html pagina&#39;s. Naast deze leggen we de Atos html code en kennen we aan onze gelijksoortige html tags dezelfde id&#39;s en classes toe. 
 Op deze manier nemen we de Atos style elementen eenvoudig over in ons eigen project zonder al te veel werk.</p>
 
+=======
+<article>
+<h2>Wiki Front-end</h2>
+
+<h3>Voorbereiding</h3>
+<p>Als voorbereiding op het ontwikkelen van de front-end is het van belang een aantal dingen op orde te hebben. 
+Hieronder vallen o.a. de juiste mappen structuur en het downloaden van de benodigde bestanden.</p>
+
+<h4>Mappen Structuur</h4>
+<p>Om het project overzichtelijk te houden voor jezelf en andere is het van groot belang een logisch indeling van je mappen te hebben. 
+Voor dit project gebruiken we de volgende opzet:<br/>
+
+	<ul>
+		<li>css</li>
+		<li>images</li>
+		<li>partials</li>
+		<li>userstories</li>
+		<li>jscript</li>
+			<ul>
+				<li>libs</li>
+			</ul>	
+	</ul>
+</p>
+
+<h4>Libraries</h4>
+<p>Na het opzetten van de mappen structuur gaan we de benodigde libraries downloaden. 
+Binnen dit project gebruiken we AngularJS, jQuery en de Chosen.<br/>
+<br/>
+Download de volgende bestanden:
+<ul>
+	<li>AngularJS - <a href="https://angularjs.org/">https://angularjs.org/</a></li>
+	<li>AngularJS resource - <a href="https://code.angularjs.org/1.3.9/angular-resource.js">https://code.angularjs.org/1.3.9/angular-resource.js</a></li>
+	<li>AngularJS route - <a href="https://code.angularjs.org/1.3.9/angular-route.js">https://code.angularjs.org/1.3.9/angular-route.js</a></li>
+	<li>JQuery - <a href="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js</a></li>
+	<li>Chosen - <a href="https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip">https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip</a></li>
+</ul>
+Na het downloaden plaats je de bestanden in JSCRIPT -> LIBS.
+</p>
+
+<h3>HTML pages</h3>
+<p>Het ontwikkelen van de website begint allemaal met het toevoegen van elementen op de pagina.</p>
+
+<h4>Index page</h4>
+<p>De index.html wordt onze hoofdpagina, deze komt dan ook direct onder de map WebContent.</p>
+
+<p><strong>Index.html aanmaken</strong><br/>
+maak het bestand index.html aan in de WebContent map.<br/>
+	<ol>
+		<li>Definieer in het bestand de versie van HTML die je wilt gebruiken. In dit geval gaan we HTML5 gebruiken dus dan wordt het &#34; &lt;!DOCTYPE html&gt; &#34;</li>
+		<li>Voeg vervolgens de html tag toe en definieer hier in de AngularJS module die wij straks gaan gebruiken met behulp van de &#34;ng-app&#34; tag, bijv: &lt;html ng-app=&#34;MyApp&#34;&gt; </li>
+	</ol>
+</p>
+<p><strong>Header</strong><br/>
+maak ene header tag aan en neem hier in op:<br/>
+	<ol>
+		<li>Titel van je pagina:&lt;title&gt;Knowledgebase&lt;/title&gt;</li>
+		<li>Meta data, zoals welke charset gebruikt moet worden: &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html&#34; charset=&#34;utf-8&#34; /&gt;</li>
+		<li>Implementeren van libs bestanden, bijv: &lt;script src=&#34;jscript/libs/angular.js&#34;&gt;&lt;/script&gt;</li>
+	</ol>
+<p><strong>Body</strong>
+Maak een body tag aan en vul deze op met de gewenste content zoals bijvoorbeeld een navigatie menu, slider, footer, etc.
+Voor dit project hebben we naast overige tags een speciaal kader gedefinieerd voor onze AngularJS partials:
+&lt;div id=&#34;content&#34; ng-view&gt;
+<br/>
+Het AngularJS script zal de ng-view tag herkennen en zal onze partials hier in laden.
+</p>
+
+<p><strong>Partials</strong><br/>
+Nu het hoofdkader (index.html) is aangemaakt gaan we de subpagina&#39;s aanmaken.
+	<ol>
+		<li>Ga naar de map partials maak hier een bestand home.html aan. Dit wordt onze homepagina.</li>
+		<li>Maak nog meer partial html bestanden aan naar wens.</li>
+		<li>Vul de partial html bestanden met de gewenste content.</li>
+	</ol>
+</p>
+
+<h3>AngularJS</h3>
+<p>Nu we de content vast hebben staan gaan we de functionaliteiten er aan toevoegen. Denk hierbij aan het inladen van de partials in de index.html, zoekfuncties of filters.</p>
+<p>Hiervoor maken we drie javascript bestanden aan:<br/>
+App.js &#45; hier wordt onze AngularJS module aangemaakt en nemen we de routeprovider op.<br/>
+Services.js &#45; hierin worden onze services (GET, POST, etc.) opgenomen.<br/>
+Controllers.js &#45; dit bestand bevat alle functionaliteiten van de betreffende pagina.<br/>
+</p>
+
+<h4>App</h4>
+<p>Om ons AngularJS script werkende te krijgen moet er als eerst een module aangemaakt worden met een naam. De titel van de module komt overeen met de ng-app titel die we in onze index.html hebben opgenomen:<br/>
+var app = angular.module(&#39;myApp&#39;, [ &#39;ngRoute&#39;,&#39;myApp.service&#39; ]);</p>
+<p>Vervolgens configureren wij de routeprovider van de module zodat elke pagina en controller aan de juiste URL wordt gekoppeld, zoals:<br/>
+app.config([&#39;$routeProvider&#39;, function ($routeProvider) { $routeProvider 
+.when(&#34;/home&#34;, {templateUrl: &#34;partials/home.html&#34;, controller: &#34;PageCtrl&#34;})</p>
+
+<h4>Services</h4>
+<p></p>
+
+<h4>Controllers</h4>
+<p>Nu de module vaststaat en is geconfigureerd gaan we de controllers aanmaken die we in de app.js willen opvragen.</p>
+<p>Maak op de onderstaande manier elke controller aan:<br/>
+app.controller(&#39;PageCtrl&#39;, function ( $scope, $location, $http ) {<br/>
+ 	  -plaats javascript code hier-<br/>
+});<br/>
+</p>
+<p>Hierbij vormt &#39;PageCtrl&#39; de naam van de controller. Geef naast de naam ook de gewenste waardes mee aan de functie, in dit geval zijn dat de variabelen $scope, $location en $http.
+Plaats binnen de functie vervolgens de gewenste Javascript code.</p>
+
+<h3>CSS</h3>
+<p>Nu de inhoud en functionaliteiten vast staan moet het alleen nog in een mooie vorm gegoten worden, dit doen we met behulp van CSS.</p>
+
+<h4>Atos Stylesheet</h4>
+<p>Voor dit project maken we gebruik van Atos stylesheet zoals gebruikt op de website.</p>
+<p>Met Google Chrome plukken we op de volgende manier de stylesheet van de Atos website:<br/>
+	<ol>
+		<li>Ga naar <a href"http://atos.net/en-us/home.html">http://atos.net/en-us/home.html</a></li>
+		<li>Druk F12.</li>
+		<li>Ga naar het tab Resources.</li>
+		<li>Open links in de verkenner de map &#39;Frames&#39;, daarna &#39;(home.html)&#39;, gevolgd door &#39;Stylesheets&#39;.</li>
+		<li>Hier zie je alle stylesheet bestanden, open deze en kopieer de content naar de Stylesheet map onder je WebContent.</li>
+	</ol>
+</p>
+<p>Vervolgens openen we onze html pagina&#39;s. Naast deze leggen we de Atos html code en kennen we aan onze gelijksoortige html tags dezelfde id&#39;s en classes toe. 
+Op deze manier nemen we de Atos style elementen eenvoudig over in ons eigen project zonder al te veel werk.</p>
 </article>
